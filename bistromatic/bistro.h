@@ -10,7 +10,8 @@ typedef struct	s_bistro
 	int			base_size;
 	char		*exp;
 	int			exp_size;
-	t_stack		*stack;
+	t_stack		*operator_stack;
+	t_queue		*operand_queue;
 }				t_bistro;
 
 #endif

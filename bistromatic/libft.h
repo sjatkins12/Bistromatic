@@ -31,6 +31,12 @@ typedef struct	s_node
 	struct s_node	*next;
 }				t_node;
 
+typedef struct	s_queue
+{
+		t_node	*first;
+		t_node	*last;
+}				t_queue;
+
 typedef struct	s_stack
 {
 	t_node		*top;
@@ -176,5 +182,7 @@ void				ft_lstadd(t_list **alst, t_list *new);
 int					is_numstr(char *line);
 
 int					ft_strcmp_wlen(const char *str1, const char *str2);
+
+void				ft_lstappend(t_list **head, t_list *new);
 
 #endif
