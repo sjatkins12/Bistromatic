@@ -2,12 +2,7 @@
 
 # define BISTRO_H
 
-typedef struct		s_btree
-{
-	void			*data;
-	struct s_btree	*left;
-	struct s_btree	*right;
-}					t_btree;
+# include "libft.h"
 
 typedef struct	s_bistro
 {
@@ -15,7 +10,7 @@ typedef struct	s_bistro
 	int			base_size;
 	char		*exp;
 	int			exp_size;
-	t_btree		*tree;
+	t_stack		*stack;
 }				t_bistro;
 
 #endif
