@@ -26,7 +26,10 @@ t_list	*ft_lstnew(void const *content, size_t content_size)
 	}
 	else
 	{
-		new->content = (void *)content;
+		new->content = malloc(content_size);
+		if (new->content == NULL)
+			return (NULL);
+		ft_memmove(new->content, content, content_size);
 		new->content_size = content_size;
 	}
 	new->next = NULL;
