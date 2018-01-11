@@ -6,14 +6,16 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 01:11:16 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/10 02:27:23 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/10 23:16:42 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-
-//TODO: Must be tested properly for all datatypes.
-//Source: https://www.geeksforgeeks.org/queue-set-2-linked-list-implementation/
+/*TODO: Must be tested properly for all datatypes.
+		Maybe make this as a header?
+		Remove main before submitting
+		Rigorous test cases
+*/
 
 typedef struct		s_node
 {
@@ -21,56 +23,73 @@ typedef struct		s_node
 	struct s_node 	*next;
 }					t_node;
 
-typedef struct		s_queue //Is the size of the queue needed?
+typedef struct		s_queue
 {
 	struct s_node	*first;
 	struct s_node 	*last;
 }					t_queue;
 
-t_queue *create_node(void *value) //pulled from btree (maybe change "void" to "int"?)
+t_queue				*init_queue(void)
 {
-	t_node *root;
-
-	root = (t_node *)malloc(sizeof(t_node));
-	root->content = value;
-	root->next = NULL;
-	return (root);
+	t_queue			*node;
+	node = (t_queue *)malloc(sizeof(t_queue));
+	node->first = NULL;
+	node->last = NULL;
+	return (node);
 }
 
-t_queue		*create_queue(void)
+void				enqueue(t_queue *queue, void *content)
 {
-	t_queue *start;
+	t_node			*node;
 
-	start = (t_queue *)malloc(sizeof(t_queue));
-	start->first = NULL;
-	start->last = NULL;
-	return (start);
-}
-
-void enqueue(t_queue *queue, void *content)
-{
-	t_queue *node;
-
-	node = create_node(content);
-	if (queue->last == NULL)
+	node = (t_node *)malloc(sizeof(t_node));
+	node->content = content;
+	node->next = NULL;
+	if (!queue->last)
 	{
 		queue->last = node;
-		queue->first = queue->last;
-		return ;
+		queue->first = node;
 	}
-	queue->last->next = node;
-	queue->last = node;
+	else
+	{
+		queue->last->next = node;
+		queue->last = queue->last->next;
+	}
+	return ;
 }
 
-void *dequeue(t_queue *queue)
+void				*dequeue(t_queue *queue)
+{
+	t_node			*tmp;
+
+	tmp = queue->first;
+	queue->first = tmp->next;
+	if (tmp)
+		return (tmp->content);
+	return (NULL);
+}
+
+void 				*peek_queue(t_queue *queue)
+{
+	if (queue->first == NULL)
+		return (NULL);
+	return (queue->first->content);
+}
+
+int					isEmpty(t_queue *queue)
+{
+	return (queue->first == NULL);
+}
+
+int		main(void)
 {
 	t_queue *node;
 
-	node = queue->first;
-	if (queue->first == NULL)
-		return (NULL);
-	queue->first = queue->first->next;
-	if (queue->first == queue->last)
-		queue->last = NULL;
-	free(node);
+	node = init_queue();
+	enqueue(node, "6 + 6");
+	printf("\nfirst is: %s", peek_queue(node));
+	printf("\ncurrent queue: %d",isEmpty(node));
+	printf("\ndequeued first: %s",dequeue(node));
+	printf("\ncurrent queue: %d",isEmpty(node));
+	return (0);
 }
