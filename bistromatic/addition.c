@@ -26,37 +26,21 @@ static int		get_val(char *c, t_bistro *bistro)
 t_list	*addition(t_bistro *bistro, t_list *operand1, t_list *operand2)
 {
 	int		carry;
-	char	*curr[2];
-	int		val1;
-	int		val2;
+	int		val[3];
 	t_list	*result;
 
 	carry = 0;
 	result = NULL;
 	while (operand1 || operand2 || carry)
 	{
-		if (operand1)
-		{
-			curr[0] = operand1->content;
-			val1 = get_val(curr[0], bistro);
-		}
-		else
-			val1 = 0;
-		if (operand2)
-		{
-			curr[1] = operand2->content;
-			val2 = get_val(curr[1], bistro);
-		}
-		else
-			val2 = 0;
-		val1 = val1 + val2 + carry;
-		carry = val1 / bistro->base_size;
-		val1 = val1 % bistro->base_size;
-		ft_lstappend(&result, ft_lstnew(&(bistro->base[val1]), 1));
-		if (operand2)
-			operand2 = operand2->next;
-		if (operand1)
-			operand1 = operand1->next;
+		val[0] = (operand1 ? get_val(operand1->content, bistro) : 0);
+		val[1] = (operand2 ? get_val(operand2->content, bistro) : 0);
+		val[2] = val[0] + val[1] + carry;
+		carry = val[2] / bistro->base_size;
+		val[2] = val[2] % bistro->base_size;
+		ft_lstappend(&result, ft_lstnew(&(bistro->base[val[2]]), 1));
+		operand1 = operand1 ? operand1->next : NULL;
+		operand2 = operand2 ? operand2->next : NULL;
 	}
 	return (result);
 }
