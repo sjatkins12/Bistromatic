@@ -15,6 +15,7 @@
 void	ft_lstappend(t_list **head, t_list *new)
 {
 	t_list	*tmp;
+
 	tmp = *head;
 	if (!(*head))
 		*head = new;

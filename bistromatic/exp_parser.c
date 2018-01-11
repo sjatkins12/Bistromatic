@@ -16,12 +16,11 @@ static void	check_oop(char c, t_bistro *bistro)
 {
 	char	*top;
 
-	if (c != '+' && c != '-' && c != '*'
-		&& c != '/' && c != '%' && c != '(' && c != ')')
+	if (!is_opperator(c))
 		return ;
 	top = ft_stackpeak(bistro->operator_stack);
 	if (!top || (*top == '(' && c != ')'))
-		ft_stackpush(&(bistro->operator_stack), c);
+		ft_stackpush(&(bistro->operator_stack), creat_node(c));
 	else if (c == ')')
 	{
 		while (top && *top != '(')
@@ -30,7 +29,7 @@ static void	check_oop(char c, t_bistro *bistro)
 		ft_stackpop(&(bistro->operator_stack));
 	}
 	else if ((*top == '-' || *top == '+') && !(c == '+' || c == '-'))
-		ft_stackpush(&(bistro->operator_stack), c);
+		ft_stackpush(&(bistro->operator_stack), creat_node(c));
 	else
 	{
 		ft_queueadd(&(bistro->operand_queue), top);
@@ -65,14 +64,11 @@ void		split_operand(t_bistro *bistro)
 		{
 			--i;
 			while (is_base(bistro->exp[i]))
-				ft_lstappend(&head, ft_lstnew(&(bistro->exp[i]), 1));
+				ft_lstadd(&head, ft_lstnew(&(bistro->exp[i]), 1));
 			ft_queueadd(&(bistro->operand_queue), head);
 			head = NULL;
 		}
 		else
-		{
-			//Peak at stack and check oop of operators
 			check_oop(bistro->exp[i], bistro);
-		}
 	}
 }
