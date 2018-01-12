@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 01:11:16 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 14:17:51 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:12:53 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,18 @@
 		Remove main before submitting
 		Rigorous test cases
 */
+
+typedef struct		s_node
+{
+	void			*content;
+	struct s_node	*next;
+}					t_node;
+
+typedef struct		s_queue
+{
+	t_list			*first;
+	t_list		 	*last;
+}					t_queue;
 
 t_queue				*init_queue(void)
 {
@@ -69,15 +81,15 @@ int					isEmpty(t_queue *queue)
 	return (queue->first == NULL);
 }
 
-// int		main(void)
-// {
-// 	t_queue *node;
-//
-// 	node = init_queue();
-// 	enqueue(node, "6 + 6");
-// 	printf("\nfirst is: %s", peek_queue(node));
-// 	printf("\ncurrent queue: %d",isEmpty(node));
-// 	printf("\ndequeued first: %s",dequeue(node));
-// 	printf("\ncurrent queue: %d",isEmpty(node));
-// 	return (0);
-// }
+int		main(void)
+{
+	t_queue *node;
+
+	node = init_queue();
+	enqueue(node, "6 + 6");
+	printf("\nfirst is: %s", peek_queue(node));
+	printf("\ncurrent queue: %d",isEmpty(node));
+	printf("\ndequeued first: %s",dequeue(node));
+	printf("\ncurrent queue: %d",isEmpty(node));
+	return (0);
+}
