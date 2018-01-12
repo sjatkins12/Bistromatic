@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bistro.h                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satkins <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/08 20:54:43 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 14:07:56 by ztisnes          ###   ########.fr       */
+/*   Created: 2016/07/19 22:58:39 by satkins           #+#    #+#             */
+/*   Updated: 2016/07/19 23:00:46 by satkins          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BISTRO_H
+#include "libft.h"
 
-# define BISTRO_H
-
-# include "libft.h"
-
-typedef struct	s_bistro
+size_t		ft_strlen(const char *s)
 {
-	char		*base;
-	int			base_size;
-	char		*exp;
-	int			exp_size;
-	t_btree		*tree;
-}				t_bistro;
+	int		count;
 
-#endif
+	count = 0;
+	while (*s != '\0')
+	{
+		count++;
+		s++;
+	}
+	return (count);
+}

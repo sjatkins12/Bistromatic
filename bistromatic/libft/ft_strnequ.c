@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bistro.h                                           :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satkins <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/08 20:54:43 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 14:07:56 by ztisnes          ###   ########.fr       */
+/*   Created: 2016/07/19 22:58:39 by satkins           #+#    #+#             */
+/*   Updated: 2016/07/19 23:00:46 by satkins          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BISTRO_H
+#include "libft.h"
 
-# define BISTRO_H
-
-# include "libft.h"
-
-typedef struct	s_bistro
+int	ft_strnequ(char const *s1, char const *s2, size_t n)
 {
-	char		*base;
-	int			base_size;
-	char		*exp;
-	int			exp_size;
-	t_btree		*tree;
-}				t_bistro;
-
-#endif
+	if (!s1 || !s2)
+		return (0);
+	if (ft_strncmp(s1, s2, n) == 0)
+		return (1);
+	else
+		return (0);
+}

@@ -1,28 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bistro.h                                           :+:      :+:    :+:   */
+/*   is_numstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satkins <satkins@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/08 20:54:43 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 14:07:56 by ztisnes          ###   ########.fr       */
+/*   Created: 2017/12/15 10:09:36 by satkins           #+#    #+#             */
+/*   Updated: 2017/12/15 10:10:01 by satkins          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BISTRO_H
+#include "libft.h"
 
-# define BISTRO_H
-
-# include "libft.h"
-
-typedef struct	s_bistro
+int		is_numstr(char *line)
 {
-	char		*base;
-	int			base_size;
-	char		*exp;
-	int			exp_size;
-	t_btree		*tree;
-}				t_bistro;
+	int	i;
 
-#endif
+	i = -1;
+	while (line[++i])
+		if (line[i] < '0' || line[i] > '9')
+			return (0);
+	return (1);
+}

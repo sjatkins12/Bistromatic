@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   bistro.h                                           :+:      :+:    :+:   */
+/*   ft_lstappend.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satkins <satkins@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/08 20:54:43 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 14:07:56 by ztisnes          ###   ########.fr       */
+/*   Created: 2018/01/09 18:08:15 by satkins           #+#    #+#             */
+/*   Updated: 2018/01/09 18:08:18 by satkins          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef BISTRO_H
+#include "libft.h"
 
-# define BISTRO_H
-
-# include "libft.h"
-
-typedef struct	s_bistro
+void	ft_lstappend(t_list **head, t_list *new)
 {
-	char		*base;
-	int			base_size;
-	char		*exp;
-	int			exp_size;
-	t_btree		*tree;
-}				t_bistro;
+	t_list	*tmp;
 
-#endif
+	tmp = *head;
+	if (!(*head))
+		*head = new;
+	else
+	{
+		while (tmp->next)
+			tmp = tmp->next;
+		tmp->next = new;
+	}
+}

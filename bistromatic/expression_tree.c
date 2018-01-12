@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   expression_tree.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2018/01/08 20:54:52 by ztisnes           #+#    #+#             */
+/*   Updated: 2018/01/12 14:17:55 by ztisnes          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "stdlib.h"
 #include "bistro.h"
-
 
 //TODO: Add this to libft if you want :D
 t_btree *create_node(int *value) //check if is necessary to malloc
