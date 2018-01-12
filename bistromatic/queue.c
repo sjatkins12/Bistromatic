@@ -6,11 +6,12 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 01:11:16 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 15:12:53 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:18:18 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include <stdio.h>
 /*TODO: Must be tested properly for all datatypes.
 		Maybe make this as a header?
 		Remove main before submitting
@@ -25,8 +26,8 @@ typedef struct		s_node
 
 typedef struct		s_queue
 {
-	t_list			*first;
-	t_list		 	*last;
+	t_node			*first;
+	t_node		 	*last;
 }					t_queue;
 
 t_queue				*init_queue(void)

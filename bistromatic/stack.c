@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 19:57:20 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 15:12:47 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:14:39 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void				*pop_stack(t_stack *stack)
 	return (anything);
 }
 
-void				*peek(t_stack *stack)
+void				*peek_stack(t_stack *stack)
 {
 	if (stack->top == NULL)
 		return (NULL);
