@@ -6,7 +6,7 @@
 /*   By: satkins <satkins@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/07/19 22:58:39 by satkins           #+#    #+#             */
-/*   Updated: 2018/01/12 14:15:44 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:22:01 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,23 +25,6 @@
 
 # define BUFF_SIZE 2048
 
-typedef struct		s_node
-{
-	void			*content;
-	struct s_node	*next;
-}					t_node;
-
-typedef struct	s_queue
-{
-	t_node		*first;
-	t_node		*last;
-}				t_queue;
-
-typedef struct	s_stack
-{
-	t_node		*top;
-}				t_stack;
-
 typedef struct		s_btree
 {
 	void			*data;
@@ -55,6 +38,23 @@ typedef struct		s_list
 	size_t			content_size;
 	struct s_list	*next;
 }					t_list;
+
+typedef struct		s_node
+{
+	void			*content;
+	struct s_node	*next;
+}					t_node;
+
+typedef struct		s_queue
+{
+	t_node			*first;
+	t_node		 	*last;
+}					t_queue;
+
+typedef struct	s_stack
+{
+	t_node		*top;
+}				t_stack;
 
 void				ft_bzero(void *s, size_t n);
 

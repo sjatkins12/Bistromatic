@@ -6,29 +6,18 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 01:11:16 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 15:18:18 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:22:16 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <stdio.h>
+#include "bistro.h"
 /*TODO: Must be tested properly for all datatypes.
 		Maybe make this as a header?
 		Remove main before submitting
 		Rigorous test cases
 */
-
-typedef struct		s_node
-{
-	void			*content;
-	struct s_node	*next;
-}					t_node;
-
-typedef struct		s_queue
-{
-	t_node			*first;
-	t_node		 	*last;
-}					t_queue;
 
 t_queue				*init_queue(void)
 {

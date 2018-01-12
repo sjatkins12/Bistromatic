@@ -6,27 +6,17 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 19:57:20 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 15:14:39 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 15:20:50 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include <stdlib.h>
+#include "bistro.h"
 
 //TODO: Must be tested properly for all datatypes. Remove main before submitting
 //		Remove "#includes" once fixes are made.
 //		Add structs to bistro.h
-
-typedef struct		s_node
-{
-	void			*content;
-	struct s_node	*next;
-}					t_node;
-
-typedef struct	s_stack
-{
-	t_node		*top;
-}				t_stack;
 
 t_stack				*init_stack(void)
 {
