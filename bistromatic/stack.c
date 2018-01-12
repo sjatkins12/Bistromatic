@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 19:57:20 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/10 21:15:23 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 14:17:53 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,18 +16,6 @@
 //TODO: Must be tested properly for all datatypes. Remove main before submitting
 //		Remove "#includes" once fixes are made.
 //		Add structs to bistro.h
-//FIXME: Polish error and mistakes. Take out unnecessary logic
-
-typedef struct		s_node
-{
-	void			*content;
-	struct s_node	*next;
-}					t_node;
-
-typedef struct		s_stack
-{
-	struct s_node	*top;
-}					t_stack;
 
 t_stack				*init_stack(void)
 {
@@ -73,12 +61,12 @@ int					isEmpty_stack(t_stack *stack)
 	return (stack->top == NULL);
 }
 
-int main(void)
-{
-	t_stack *node = init_stack();
-	push)stack(node, "123456");
-	printf("\ncurrent top: %s",peek_stack(node));
-	printf("\ncurrent top: %s",pop_stack(node));
-	printf("\ncurrent top: %s",peek_stack(node));
-	return (0);
-}
+// int main(void)
+// {
+// 	t_stack *node = init_stack();
+// 	push)stack(node, "123456");
+// 	printf("\ncurrent top: %s",peek_stack(node));
+// 	printf("\ncurrent top: %s",pop_stack(node));
+// 	printf("\ncurrent top: %s",peek_stack(node));
+// 	return (0);
+// }
