@@ -14,4 +14,11 @@ typedef struct	s_bistro
 	t_queue		*operand_queue;
 }				t_bistro;
 
+typedef struct	s_operand
+{
+	char		c;
+	int			negative;
+}				t_operand;
+
+void	digitizer(t_list *num);
 #endif

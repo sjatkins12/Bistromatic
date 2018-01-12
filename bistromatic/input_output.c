@@ -8,7 +8,7 @@ void	read_base(char *base, t_bistro *bistro)
 		return ; //Handle Error
 }
 
-void	read_stdin(int exp_size, t_bistro *bistro)
+void	read_stdin(size_t exp_size, t_bistro *bistro)
 {
 	if (!exp_size)
 		return ; //Handle Error
@@ -18,14 +18,17 @@ void	read_stdin(int exp_size, t_bistro *bistro)
 		return ; //Handle Error
 }
 
-void	digitizer(int num, t_bistro *bistro)
+void	digit_printer(char *num)
 {
-	if (num >= bistro->base_size)
-		digitizer(num / bistro->base_size, bistro);
-	digit_printer(num % bistro->base_size, bistro);
+	char c;
+
+	c = *num;
+	ft_putchar(c);
 }
 
-void	digit_printer(int num, t_bistro *bistro)
+void	digitizer(t_list *num)
 {
-	ft_putchar(bistro->base[num]);
+	if (num->next)
+		digitizer(num->next);
+	digit_printer(num->content);
 }
