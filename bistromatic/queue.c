@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/10 01:11:16 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 15:22:16 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 17:36:25 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ t_queue				*init_queue(void)
 	return (node);
 }
 
-void				enqueue(t_queue *queue, void *content)
+void				ft_enqueue(t_queue *queue, void *content)
 {
 	t_node			*node;
 
@@ -48,7 +48,7 @@ void				enqueue(t_queue *queue, void *content)
 	return ;
 }
 
-void				*dequeue(t_queue *queue)
+void				*ft_dequeue(t_queue *queue)
 {
 	t_node			*tmp;
 

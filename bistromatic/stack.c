@@ -6,7 +6,7 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 19:57:20 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 15:20:50 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/12 17:35:15 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ t_stack				*init_stack(void)
 	return (node);
 }
 
-void				push_stack(t_stack *stack, void *content)
+void				ft_stackpush(t_stack *stack, void *content)
 {
 	t_node			*node;
 
@@ -36,7 +36,7 @@ void				push_stack(t_stack *stack, void *content)
 	stack->top = node;
 }
 
-void				*pop_stack(t_stack *stack)
+void				*ft_stackpop(t_stack *stack)
 {
 	t_node			*next;
 	void			*anything;
@@ -50,7 +50,7 @@ void				*pop_stack(t_stack *stack)
 	return (anything);
 }
 
-void				*peek_stack(t_stack *stack)
+void				*ft_stackpeak(t_stack *stack)
 {
 	if (stack->top == NULL)
 		return (NULL);

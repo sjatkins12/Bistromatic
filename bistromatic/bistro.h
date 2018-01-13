@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   bistro.h                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/08 20:54:43 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 15:22:11 by ztisnes          ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef BISTRO_H
 
 # define BISTRO_H
@@ -22,7 +10,15 @@ typedef struct	s_bistro
 	int			base_size;
 	char		*exp;
 	int			exp_size;
-	t_btree		*tree;
+	t_stack		*operator_stack;
+	t_queue		*operand_queue;
 }				t_bistro;
 
+typedef struct	s_operand
+{
+	char		c;
+	int			negative;
+}				t_operand;
+
+void	digitizer(t_list *num);
 #endif
