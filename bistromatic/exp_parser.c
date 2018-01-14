@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   exp_parser.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satkins <satkins@student.42.fr>            +#+  +:+       +#+        */
+/*   By: satkins <satkins@student.42.us.org>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 20:17:36 by satkins           #+#    #+#             */
-/*   Updated: 2018/01/12 17:36:27 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/08 20:17:39 by satkins          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,9 @@ static void	check_oop(char c, t_bistro *bistro)
 		ft_stackpush(&(bistro->operator_stack), creat_node(c));
 	else
 	{
-		ft_enqueue(&(bistro->operand_queue), top);
+		ft_queueadd(&(bistro->operand_queue), top);
 		ft_stackpop(&(bistro->operator_stack));
+		ft_stackpush(&(bistro->operator_stack), creat_node(c));
 	}
 }
 
@@ -62,10 +63,12 @@ void		split_operand(t_bistro *bistro)
 	{
 		if (is_base(bistro->exp[i], bistro))
 		{
-			--i;
 			while (is_base(bistro->exp[i]))
+			{
 				ft_lstadd(&head, ft_lstnew(&(bistro->exp[i]), 1));
-			ft_enqueue(&(bistro->operand_queue), head);
+				++i;
+			}
+			ft_queueadd(&(bistro->operand_queue), head);
 			head = NULL;
 		}
 		else
