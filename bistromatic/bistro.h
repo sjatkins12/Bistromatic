@@ -21,4 +21,7 @@ typedef struct	s_operand
 }				t_operand;
 
 void	digitizer(t_list *num);
+t_list	*subtract(t_bistro *bistro, t_list *oper1, t_list *oper2);
+t_list	*addition(t_bistro *bistro, t_list *operand1, t_list *operand2);
+int		check_size(t_list *oper1, t_list *oper2, t_bistro *b);
 #endif

@@ -34,6 +34,7 @@ static void	check_oop(char c, t_bistro *bistro)
 	{
 		ft_queueadd(&(bistro->operand_queue), top);
 		ft_stackpop(&(bistro->operator_stack));
+		ft_stackpush(&(bistro->operator_stack), creat_node(c));
 	}
 }
 
@@ -62,9 +63,11 @@ void		split_operand(t_bistro *bistro)
 	{
 		if (is_base(bistro->exp[i], bistro))
 		{
-			--i;
 			while (is_base(bistro->exp[i]))
+			{
 				ft_lstadd(&head, ft_lstnew(&(bistro->exp[i]), 1));
+				++i;
+			}
 			ft_queueadd(&(bistro->operand_queue), head);
 			head = NULL;
 		}

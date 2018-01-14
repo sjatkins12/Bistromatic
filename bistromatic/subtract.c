@@ -113,33 +113,33 @@ t_list	*subtract(t_bistro *bistro, t_list *oper1, t_list *oper2)
 
 }
 
-int	main()
-{
-	t_list	*op1;
-	t_list	*op2;
-	t_list	*result;
-	t_bistro	*bistro;
-	char *str = "90";
-	char *str1 = "6";
+// int	main()
+// {
+// 	t_list	*op1;
+// 	t_list	*op2;
+// 	t_list	*result;
+// 	t_bistro	*bistro;
+// 	char *str = "90";
+// 	char *str1 = "6";
 
-	op1 = NULL;
-	op2 = NULL;
-	while (*str)
-	{
-		ft_lstadd(&op1, ft_lstnew(str, 1));
-		str++;
-	}
-	while (*str1)
-	{
-		ft_lstadd(&op2, ft_lstnew(str1, 1));
-		str1++;
-	}
+// 	op1 = NULL;
+// 	op2 = NULL;
+// 	while (*str)
+// 	{
+// 		ft_lstadd(&op1, ft_lstnew(str, 1));
+// 		str++;
+// 	}
+// 	while (*str1)
+// 	{
+// 		ft_lstadd(&op2, ft_lstnew(str1, 1));
+// 		str1++;
+// 	}
 
-	bistro = malloc(sizeof(t_bistro));
-	bistro->base = "0123456789";
-	bistro->base_size = 10;
+// 	bistro = malloc(sizeof(t_bistro));
+// 	bistro->base = "0123456789";
+// 	bistro->base_size = 10;
 
-	result = subtract(bistro, op2, op1);
-	digitizer(result);
-	printf("\n");
-}
+// 	result = subtract(bistro, op2, op1);
+// 	digitizer(result);
+// 	printf("\n");
+// }

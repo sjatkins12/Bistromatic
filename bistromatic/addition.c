@@ -12,13 +12,13 @@
 
 #include "bistro.h"
 
-static int		get_val(char c, t_bistro *bistro)
+static int		get_val(char *c, t_bistro *bistro)
 {
 	int	i;
 
 	i = -1;
 	while (++i < bistro->base_size)
-		if (c == bistro->base[i])
+		if (*c == bistro->base[i])
 			return (i);
 	return (-1);
 }
@@ -38,7 +38,7 @@ t_list	*addition(t_bistro *bistro, t_list *operand1, t_list *operand2)
 		val[2] = val[0] + val[1] + carry;
 		carry = val[2] / bistro->base_size;
 		val[2] = val[2] % bistro->base_size;
-		ft_lstappend(&result, ft_lstnew(bistro->base[val[2]], 1));
+		ft_lstappend(&result, ft_lstnew(&(bistro->base[val[2]]), 1));
 		operand1 = operand1 ? operand1->next : NULL;
 		operand2 = operand2 ? operand2->next : NULL;
 	}
