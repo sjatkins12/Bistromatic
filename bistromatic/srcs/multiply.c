@@ -6,13 +6,13 @@
 /*   By: satkins <satkins@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 12:13:28 by satkins           #+#    #+#             */
-/*   Updated: 2018/01/13 19:27:13 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:29:50 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bistro.h"
 
-void	del_num(t_list *oper)
+void		del_num(t_list *oper)
 {
 	t_list	*next;
 
@@ -25,7 +25,7 @@ void	del_num(t_list *oper)
 	}
 }
 
-t_list	*decrement(t_bistro *bistro, t_list *oper)
+t_list		*decrement(t_bistro *bistro, t_list *oper)
 {
 	t_list	*dec;
 	t_list	*result;
@@ -39,7 +39,7 @@ t_list	*decrement(t_bistro *bistro, t_list *oper)
 	return (result);
 }
 
-t_list	*multiplier(t_bistro *bistro, t_list *oper1, t_list *oper2)
+t_list		*multiplier(t_bistro *bistro, t_list *oper1, t_list *oper2)
 {
 	t_list	*result;
 	t_list	*tmp;
@@ -56,9 +56,9 @@ t_list	*multiplier(t_bistro *bistro, t_list *oper1, t_list *oper2)
 	return (result);
 }
 
-t_list *multiply(t_bistro *bistro, t_list *oper1, t_list *oper2)
+t_list		*multiply(t_bistro *bistro, t_list *oper1, t_list *oper2)
 {
-	int	size;
+	int		size;
 
 	size = check_size(oper1, oper2, bistro);
 	if (size == -1)
@@ -66,6 +66,8 @@ t_list *multiply(t_bistro *bistro, t_list *oper1, t_list *oper2)
 	else
 		return (multiplier(bistro, oper1, oper2));
 }
+<<<<<<< HEAD:bistromatic/srcs/multiply.c
+=======
 
 // 
 // int	main()
@@ -98,3 +100,4 @@ t_list *multiply(t_bistro *bistro, t_list *oper1, t_list *oper2)
 // 	digitizer(result);
 // 	printf("\n");
 // }
+>>>>>>> fb06decc921630f6e020d5e6ff43e6e8f644c731:bistromatic/multiply.c
