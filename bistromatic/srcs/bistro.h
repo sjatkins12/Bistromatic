@@ -6,7 +6,7 @@
 /*   By: satkins <satkins@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/07 16:44:12 by satkins           #+#    #+#             */
-/*   Updated: 2018/01/14 16:44:43 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/15 03:19:04 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 # define BISTRO_H
 
-# include "libft.h"
+# include "libft/libft.h"
 
 typedef struct	s_bistro
 {

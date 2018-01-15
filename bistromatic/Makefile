@@ -6,49 +6,116 @@
 #    By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/14 16:08:22 by ztisnes           #+#    #+#              #
-#    Updated: 2018/01/14 16:57:25 by ztisnes          ###   ########.fr        #
+#    Updated: 2018/01/15 03:24:04 by ztisnes          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= libft.a bistro.a
+PROGRAM = bistromatic
+FLAGS = -Wall -Werror -Wextra -g
+CC = gcc
+OBJSRC = $(patsubst %, %.o, $(SRC))
+OBJINC = $(patsubst %, %.o, $(INC))
 
-INC_DIR := includes
-SRC_DIR := srcs
+#LS SOURCE
+SRC += srcs/addition
+SRC += srcs/division
+SRC += srcs/evaluate_expression
+SRC += srcs/exp_parser
+SRC += srcs/input_output
+SRC += srcs/modulo
+SRC += srcs/multiply
+SRC += srcs/queue
+SRC += srcs/stack
+SRC += srcs/subtract
 
-HEADER	= libft.h bistro.h
+#GENERAL LIBFT FUNCTIONS
+INC += srcs/libft/ft_atoi
+INC += srcs/libft/ft_bzero
+INC += srcs/libft/ft_handle_error
+INC += srcs/libft/ft_isalnum
+INC += srcs/libft/ft_isalpha
+INC += srcs/libft/ft_isascii
+INC += srcs/libft/ft_isdigit
+INC += srcs/libft/ft_isprint
+INC += srcs/libft/ft_itoa
+INC += srcs/libft/ft_lstadd
+INC += srcs/libft/ft_lstappend
+INC += srcs/libft/ft_lstdel
+INC += srcs/libft/ft_lstdelone
+INC += srcs/libft/ft_lstiter
+INC += srcs/libft/ft_lstmap
+INC += srcs/libft/ft_lstnew
+INC += srcs/libft/ft_memalloc
+INC += srcs/libft/ft_memccpy
+INC += srcs/libft/ft_memchr
+INC += srcs/libft/ft_memcpy
+INC += srcs/libft/ft_memdel
+INC += srcs/libft/ft_memmove
+INC += srcs/libft/ft_memset
+INC += srcs/libft/ft_putchar_fd
+INC += srcs/libft/ft_putchar
+INC += srcs/libft/ft_putendl_fd
+INC += srcs/libft/ft_putendl
+INC += srcs/libft/ft_putnbr_fd
+INC += srcs/libft/ft_putnbr
+INC += srcs/libft/ft_putnstr
+INC += srcs/libft/ft_putstr_fd
+INC += srcs/libft/ft_putstr
+INC += srcs/libft/ft_strcat
+INC += srcs/libft/ft_strchr
+INC += srcs/libft/ft_strclr
+INC += srcs/libft/ft_strcmp_wlen
+INC += srcs/libft/ft_strcmp
+INC += srcs/libft/ft_strcpy
+INC += srcs/libft/ft_strdel
+INC += srcs/libft/ft_strdup
+INC += srcs/libft/ft_strequ
+INC += srcs/libft/ft_striter
+INC += srcs/libft/ft_striteri
+INC += srcs/libft/ft_strjoin
+INC += srcs/libft/ft_strlcat
+INC += srcs/libft/ft_strlen
+INC += srcs/libft/ft_strmap
+INC += srcs/libft/ft_strmapi
+INC += srcs/libft/ft_strncat
+INC += srcs/libft/ft_strncmp
+INC += srcs/libft/ft_strncpy
+INC += srcs/libft/ft_strequ
+INC += srcs/libft/ft_strnew
+INC += srcs/libft/ft_strnjoin
+INC += srcs/libft/ft_strnstr
+INC += srcs/libft/ft_strrchr
+INC += srcs/libft/ft_strsplit
+INC += srcs/libft/ft_strstr
+INC += srcs/libft/ft_strsub
+INC += srcs/libft/ft_strtrim
+INC += srcs/libft/ft_tolower_str
+INC += srcs/libft/ft_tolower
+INC += srcs/libft/ft_toupper
+INC += srcs/libft/ft_ullitoa_base
+INC += srcs/libft/get_next_line
+INC += srcs/libft/is_numstr
 
-FLAGS	= -c -Wall -Wextra -Werror
+all: $(PROGRAM)
 
-INCLS	:= $(INC_DIR)
-SRCS	= ($(SRC_DIR)/(ft_atoi.c ft_bzero.c ft_isalnum.c ft_handle_error.c \
-ft_isdigit.c ft_isprint.c ft_iswhitespace.c ft_itoa.c ft_lstadd.c ft_lstdel.c \
-ft_lstdelone.c ft_lstiter.c ft_lstmap.c ft_lstnew.c ft_memalloc.c ft_memccpy.c \
-ft_memchr.c ft_memcmp.c ft_memcpy.c ft_memdel.c ft_memmove.c ft_memset.c \
-ft_putchar_fd.c ft_putchar.c ft_putendl_fd.c ft_putendl.c ft_putnbr_fd.c \
-ft_putnbr.c ft_putnstr.c ft_putstr_fd.c ft_putstr.c ft_strcat.c ft_strchr.c \
-ft_strclr.c ft_strcmp.c ft_strcmp_wlen.c ft_strcpy.c ft_strdel.c ft_strdup.c \
-ft_strequ.c ft_striter.c ft_striteri.c ft_strjoin.c ft_strlcat.c ft_isalnum.c\
-ft_strlen.c ft_strmap.c ft_strmapi.c ft_strncat.c ft_strncmp.c ft_strncpy.c \
-ft_strnequ.c ft_strnew.c ft_strnstr.c ft_strrchr.c ft_strsplit.c ft_strstr.c \
-ft_strsub.c ft_strtrim.c ft_tolower.c ft_toupper.c ft_ullitoa_base \
-get_next_line.c is_numstr.c queue.c stack.c addition.c division.c subtract.c \
-multiply.c modulo.c input_output.c exp_parser.c evaluate_expression.c))
+$(PROGRAM): $(OBJINC) $(OBJSRC)
+	@ echo "Compiling calc program"
+	@ $(CC) $(FLAGS) $(OBJINC) $(OBJSRC) -o $(PROGRAM)
 
-OBJS    = $(SRCS:.c=.o)
-
-all: $(NAME)
-
-$(NAME):
-	gcc $(FLAGS) $(SRCS) -I $(HEADER)
-	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+%.o: %.c
+	@ echo "Compiling $<..."
+	@ $(CC) $(FLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	@ /bin/rm -f $(OBJSRC)
+	@ /bin/rm -f $(OBJINC)
+	@ echo "Cleaning folders of object files..."
 
 fclean: clean
-	rm -f $(NAME)
+	@ /bin/rm -f $(PROGRAM)
+	@ echo "Removing files and binary..."
 
-re: 	fclean all
+re: fclean all
+	@ echo "Program Remade"
 
-.PHONY: all clean fclean re
+.PHONY:	all clean fclean re
