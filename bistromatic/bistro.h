@@ -2,7 +2,7 @@
 
 # define BISTRO_H
 
-# include "libft/libft.h"
+# include "libft.h"
 
 typedef struct	s_bistro
 {
