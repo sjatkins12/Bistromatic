@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   subtract.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: satkins <satkins@student.42.us.org>        +#+  +:+       +#+        */
+/*   By: satkins <satkins@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/12 12:32:21 by satkins           #+#    #+#             */
-/*   Updated: 2018/01/12 12:32:23 by satkins          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:31:09 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "bistro.h"
 
-static int		get_val(char *c, t_bistro *bistro)
+static int	get_val(char *c, t_bistro *bistro)
 {
-	int	i;
+	int		i;
 
 	i = -1;
 	while (++i < bistro->base_size)
@@ -25,7 +25,7 @@ static int		get_val(char *c, t_bistro *bistro)
 /*
 
 */
-int		check_size(t_list *oper1, t_list *oper2, t_bistro *b)
+int			check_size(t_list *oper1, t_list *oper2, t_bistro *b)
 {
 	int		max;
 	int		val1;
@@ -50,7 +50,7 @@ int		check_size(t_list *oper1, t_list *oper2, t_bistro *b)
 	return (max);
 }
 
-t_list	*subtraction(t_bistro *bistro, t_list *oper1, t_list *oper2)
+t_list		*subtraction(t_bistro *bistro, t_list *oper1, t_list *oper2)
 {
 	t_list	*result;
 	int		val2;
@@ -85,7 +85,7 @@ t_list	*subtraction(t_bistro *bistro, t_list *oper1, t_list *oper2)
 	return (result);
 }
 
-void	trim(t_list **result, t_bistro *bistro, int depth)
+void		trim(t_list **result, t_bistro *bistro, int depth)
 {
 	if ((*result)->next)
 		trim(&((*result)->next), bistro, depth + 1);
@@ -96,7 +96,7 @@ void	trim(t_list **result, t_bistro *bistro, int depth)
 	}
 }
 
-t_list	*subtract(t_bistro *bistro, t_list *oper1, t_list *oper2)
+t_list		*subtract(t_bistro *bistro, t_list *oper1, t_list *oper2)
 {
 	int	negative;
 	t_list	*result;
@@ -112,34 +112,3 @@ t_list	*subtract(t_bistro *bistro, t_list *oper1, t_list *oper2)
 	return (result);
 
 }
-
-// int	main()
-// {
-// 	t_list	*op1;
-// 	t_list	*op2;
-// 	t_list	*result;
-// 	t_bistro	*bistro;
-// 	char *str = "90";
-// 	char *str1 = "6";
-
-// 	op1 = NULL;
-// 	op2 = NULL;
-// 	while (*str)
-// 	{
-// 		ft_lstadd(&op1, ft_lstnew(str, 1));
-// 		str++;
-// 	}
-// 	while (*str1)
-// 	{
-// 		ft_lstadd(&op2, ft_lstnew(str1, 1));
-// 		str1++;
-// 	}
-
-// 	bistro = malloc(sizeof(t_bistro));
-// 	bistro->base = "0123456789";
-// 	bistro->base_size = 10;
-
-// 	result = subtract(bistro, op2, op1);
-// 	digitizer(result);
-// 	printf("\n");
-// }

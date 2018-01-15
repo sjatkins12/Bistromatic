@@ -6,17 +6,11 @@
 /*   By: ztisnes <ztisnes@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/09 19:57:20 by ztisnes           #+#    #+#             */
-/*   Updated: 2018/01/12 17:35:15 by ztisnes          ###   ########.fr       */
+/*   Updated: 2018/01/14 15:22:50 by ztisnes          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include <stdlib.h>
 #include "bistro.h"
-
-//TODO: Must be tested properly for all datatypes. Remove main before submitting
-//		Remove "#includes" once fixes are made.
-//		Add structs to bistro.h
 
 t_stack				*init_stack(void)
 {
@@ -63,12 +57,3 @@ int					isempty_stack(t_stack *stack)
 	return (stack->top == NULL);
 }
 
-// int main(void)
-// {
-// 	t_stack *node = init_stack();
-// 	push_stack(node, "123456");
-// 	printf("\ncurrent top: %s",peek_stack(node));
-// 	printf("\ncurrent top: %s",pop_stack(node));
-// 	printf("\ncurrent top: %s",peek_stack(node));
-// 	return (0);
-// }
