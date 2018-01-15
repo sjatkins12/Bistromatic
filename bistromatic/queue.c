@@ -28,12 +28,13 @@ t_queue				*init_queue(void)
 	return (node);
 }
 
-void				ft_enqueue(t_queue *queue, void *content)
+void				ft_enqueue(t_queue *queue, void *content, size_t c_size)
 {
 	t_node			*node;
 
 	node = (t_node *)malloc(sizeof(t_node));
-	node->content = content;
+	node->content = ft_memalloc(c_size);
+	node->content = ft_memmove(node->content, content, c_size);
 	node->next = NULL;
 	if (!queue->last)
 	{
@@ -53,9 +54,11 @@ void				*ft_dequeue(t_queue *queue)
 	t_node			*tmp;
 
 	tmp = queue->first;
-	queue->first = tmp->next;
 	if (tmp)
+	{
+		queue->first = tmp->next;
 		return (tmp->content);
+	}
 	return (NULL);
 }
 
@@ -71,15 +74,15 @@ int					isEmpty(t_queue *queue)
 	return (queue->first == NULL);
 }
 
-int		main(void)
-{
-	t_queue *node;
+// int		main(void)
+// {
+// 	t_queue *node;
 
-	node = init_queue();
-	enqueue(node, "6 + 6");
-	printf("\nfirst is: %s", peek_queue(node));
-	printf("\ncurrent queue: %d",isEmpty(node));
-	printf("\ndequeued first: %s",dequeue(node));
-	printf("\ncurrent queue: %d",isEmpty(node));
-	return (0);
-}
+// 	node = init_queue();
+// 	enqueue(node, "6 + 6");
+// 	printf("\nfirst is: %s", peek_queue(node));
+// 	printf("\ncurrent queue: %d",isEmpty(node));
+// 	printf("\ndequeued first: %s",dequeue(node));
+// 	printf("\ncurrent queue: %d",isEmpty(node));
+// 	return (0);
+// }

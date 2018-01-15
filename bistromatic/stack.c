@@ -26,12 +26,13 @@ t_stack				*init_stack(void)
 	return (node);
 }
 
-void				ft_stackpush(t_stack *stack, void *content)
+void				ft_stackpush(t_stack *stack, void *content, size_t c_size)
 {
 	t_node			*node;
 
 	node = (t_node *)malloc(sizeof(t_node));
-	node->content = content;
+	node->content = ft_memalloc(c_size);
+	node->content = ft_memmove(node->content, content, c_size);
 	node->next = stack->top;
 	stack->top = node;
 }
@@ -57,17 +58,17 @@ void				*ft_stackpeak(t_stack *stack)
 	return (stack->top->content);
 }
 
-int					isEmpty_stack(t_stack *stack)
+int					isempty_stack(t_stack *stack)
 {
 	return (stack->top == NULL);
 }
 
-int main(void)
-{
-	t_stack *node = init_stack();
-	push_stack(node, "123456");
-	printf("\ncurrent top: %s",peek_stack(node));
-	printf("\ncurrent top: %s",pop_stack(node));
-	printf("\ncurrent top: %s",peek_stack(node));
-	return (0);
-}
+// int main(void)
+// {
+// 	t_stack *node = init_stack();
+// 	push_stack(node, "123456");
+// 	printf("\ncurrent top: %s",peek_stack(node));
+// 	printf("\ncurrent top: %s",pop_stack(node));
+// 	printf("\ncurrent top: %s",peek_stack(node));
+// 	return (0);
+// }
