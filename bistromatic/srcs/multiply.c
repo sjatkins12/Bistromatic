@@ -66,3 +66,38 @@ t_list		*multiply(t_bistro *bistro, t_list *oper1, t_list *oper2)
 	else
 		return (multiplier(bistro, oper1, oper2));
 }
+<<<<<<< HEAD:bistromatic/srcs/multiply.c
+=======
+
+// 
+// int	main()
+// {
+// 	t_list	*op1;
+// 	t_list	*op2;
+// 	t_list	*result;
+// 	t_bistro	*bistro;
+// 	char *str = "24871444";
+// 	char *str1 = "44";
+//
+// 	op1 = NULL;
+// 	op2 = NULL;
+// 	while (*str)
+// 	{
+// 		ft_lstadd(&op1, ft_lstnew(str, 1));
+// 		str++;
+// 	}
+// 	while (*str1)
+// 	{
+// 		ft_lstadd(&op2, ft_lstnew(str1, 1));
+// 		str1++;
+// 	}
+//
+// 	bistro = malloc(sizeof(t_bistro));
+// 	bistro->base = "0123456789";
+// 	bistro->base_size = 10;
+//
+// 	result = multiply(bistro, op1, op2);
+// 	digitizer(result);
+// 	printf("\n");
+// }
+>>>>>>> fb06decc921630f6e020d5e6ff43e6e8f644c731:bistromatic/multiply.c
